@@ -1,0 +1,8 @@
+spring:
+  datasource:
+    url: ${MINTOS_DB_URL}
+    username: ${MINTOS_DB_USERNAME}
+    password: ${MINTOS_DB_PASSWORD}
+
+logging:
+  config: classpath:logging/log4j-prod.yaml
