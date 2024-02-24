@@ -1,3 +1,12 @@
+info:
+  app:
+    name: Mintos homework
+    version: 1.0
+    description: API Documentation
+    active-profile: ${spring.profiles.active}
+    dev-description: Currency fund transaction service development
+    dev-link: https://github.com/ximtech/mintos-homework
+
 server:
   port: 8094
   error:
@@ -26,7 +35,53 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-    show-sql: true
-    properties:
-      hibernate:
-        format.sql: true
+    show-sql: false
+        
+# actuator
+management:
+  endpoint.health.show-details: always
+  health.circuitbreakers.enabled: true
+  endpoints:
+    enabled-by-default: false
+    web:
+      exposure:
+        include: info, health, caches
+    jmx:
+      exposure:
+        exclude: "*"
+  endpoint:
+    info:
+      enabled: true
+    health:
+      enabled: true
+    caches:
+      enabled: true
+
+resilience4j:
+  circuitbreaker:
+    instances:
+      currency-api-service:
+        failureRateThreshold: 50
+        waitDurationInOpenState: 5s
+        permittedNumberOfCallsInHalfOpenState: 3
+        minimumNumberOfCalls: 5
+        slidingWindowType: COUNT_BASED
+        slidingWindowSize: 10
+        eventConsumerBufferSize: 10
+        registerHealthIndicator: true
+  retry:
+    instances:
+      currency-api-service:
+        maxAttempts: 3
+        waitDuration: 1s
+  timelimiter:
+    instances:
+      currency-api-service:
+        timeoutDuration: 5s
+        cancelRunningFuture: false
+        
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+api.exchange.rate.access.key: ${API_EXCHANGE_RATE_ACCESS_KEY}

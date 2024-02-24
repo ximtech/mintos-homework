@@ -3,6 +3,9 @@ server:
     include-stacktrace: always
 
 spring:
+  docker:
+    compose:
+      enabled: false
   datasource:
     url: jdbc:postgresql://host.docker.internal:5432/mintos_db
     username: postgres
