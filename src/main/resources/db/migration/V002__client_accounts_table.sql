@@ -10,7 +10,7 @@ CREATE TABLE IF NOT EXISTS mintos.client_accounts
     client_id UUID NOT NULL,
     currency VARCHAR(255) NOT NULL,
     balance NUMERIC(15,6) NOT NULL,
-    deleted BOOLEAN
+    deleted BOOLEAN DEFAULT FALSE
 );
 
 CREATE INDEX IF NOT EXISTS idx_client_id ON mintos.client_accounts(client_id);

@@ -13,23 +13,25 @@ import org.springframework.context.annotation.Configuration;
 @Slf4j
 @Configuration
 public class ApplicationCircuitBreakerConfig {
-    
+
+    public static final String CIRCUIT_BREAKER_NAME = "currency-api-service";
+
     @Bean
     CircuitBreaker apiServiceCircuitBreaker(CircuitBreakerRegistry registry) {
         log.info("Registering circuit breaker");
-        return registry.circuitBreaker("currency-api-service");
+        return registry.circuitBreaker(CIRCUIT_BREAKER_NAME);
     }
 
     @Bean
     Retry apiServiceRetry(RetryRegistry registry) {
         log.info("Registering retry circuit breaker");
-        return registry.retry("currency-api-service");
+        return registry.retry(CIRCUIT_BREAKER_NAME);
     }
 
     @Bean
     TimeLimiter apiServiceTimeLimiter(TimeLimiterRegistry registry) {
         log.info("Registering time limiter circuit breaker");
-        return registry.timeLimiter("currency-api-service");
+        return registry.timeLimiter(CIRCUIT_BREAKER_NAME);
     }
 
 }

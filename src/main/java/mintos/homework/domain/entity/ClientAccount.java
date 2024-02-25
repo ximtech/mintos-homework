@@ -7,6 +7,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 
 import java.math.BigDecimal;
 import java.util.UUID;
@@ -29,6 +30,7 @@ public class ClientAccount extends BaseEntity {
     BigDecimal balance;
     
     @Column
+    @ColumnDefault("false")
     boolean deleted;
 
 }

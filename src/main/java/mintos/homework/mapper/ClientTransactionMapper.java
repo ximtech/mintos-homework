@@ -9,6 +9,7 @@ import org.mapstruct.Mapping;
 public interface ClientTransactionMapper {
 
     @Mapping(target = "targetClientAccountId", source = "targetAccount.id")
+    @Mapping(target = "amountTransferred", source = "amount")
     ClientTransactionDTO mapToTransaction(ClientTransaction entity);
 
 }

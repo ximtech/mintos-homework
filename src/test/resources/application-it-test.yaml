@@ -1,0 +1,11 @@
+spring:
+  sql:
+    init:
+      mode: always
+  main:
+    allow-bean-definition-overriding: true
+  groovy:
+    template:
+      check-template-location: false
+
+api.exchange.rate.access.key: 4430a702cbef4a76ba8134783238cf8d

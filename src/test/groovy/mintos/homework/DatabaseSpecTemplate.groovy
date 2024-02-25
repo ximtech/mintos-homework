@@ -4,7 +4,6 @@ import groovy.util.logging.Slf4j
 import org.springframework.boot.test.context.SpringBootTest
 import org.springframework.context.ApplicationContextInitializer
 import org.springframework.context.ConfigurableApplicationContext
-import org.springframework.jdbc.datasource.init.DataSourceInitializer
 import org.springframework.test.context.ActiveProfiles
 import org.springframework.test.context.ContextConfiguration
 import org.springframework.test.context.support.TestPropertySourceUtils
@@ -42,7 +41,6 @@ class DatabaseSpecTemplate extends Specification {
                     "spring.datasource.username=" + POSTGRE_SQL_CONTAINER.getUsername(),
                     "spring.datasource.password=" + POSTGRE_SQL_CONTAINER.getPassword()
             )
-            
         }
     }
 }
