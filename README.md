@@ -2,6 +2,7 @@
 
 [![build](https://github.com/ximtech/mintos-homework/actions/workflows/build.yml/badge.svg)](https://github.com/ximtech/mintos-homework/actions/workflows/build.yml)
 [![codecov](https://codecov.io/gh/ximtech/mintos-homework/graph/badge.svg?token=ODTJcTrfNp)](https://codecov.io/gh/ximtech/mintos-homework)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/b1f3cef3229c49e3acdf66836ba8b7bb)](https://app.codacy.com/gh/ximtech/mintos-homework/dashboard)
 
 ### Prerequisites
 
