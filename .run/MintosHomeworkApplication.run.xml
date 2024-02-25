@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="MintosHomeworkApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+    <module name="mintos-homework.main" />
+    <option name="SPRING_BOOT_MAIN_CLASS" value="mintos.homework.MintosHomeworkApplication" />
+    <option name="ALTERNATIVE_JRE_PATH" />
+    <option name="SHORTEN_COMMAND_LINE" value="NONE" />
+    <envs>
+      <env name="API_EXCHANGE_RATE_ACCESS_KEY" value="&lt;your_api_key_here&gt;" />
+      <env name="PROFILE" value="dev" />
+    </envs>
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

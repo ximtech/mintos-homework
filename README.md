@@ -6,8 +6,8 @@
 
 ### Prerequisites
 
-- JDK 21
-- Docker
+- `JDK 21` (Optional)
+- `Docker`
 - `https://www.exchangerate-api.com/` Api key for currency exchange rate
 
 ### Functional requirements
@@ -26,8 +26,8 @@ different currencies
 - You may limit the currencies supported by your implementation based on what the
 currency exchange rate service supports
 - The currency of funds in the transfer operation must match the receiver's account
-currency (e.g. system should return an error when requesting to transfer 30 GBP
-from a USD account to a EUR account, however transferring 30 GBP from USD to
+currency (e.g., system should return an error when requesting to transfer 30 GBP
+from a USD account to an EUR account, however transferring 30 GBP from USD to
 GBP is a valid operation - corresponding amount of USD is exchanged to GBP and
 credited to GBP account).
 
@@ -41,9 +41,36 @@ the items (more is better, however).
 
 ## Run example
 
+### 1. Run from Docker container
 
+- In project root set `API_EXCHANGE_RATE_ACCESS_KEY` env in `docker-compose.yaml`
+- Run command: `docker-compose up`<br/>
 
+![<img width="200" height="200"/>](assets/docker-img.png)
+
+- Wait until containers will up and ready
+- Run requests or check `Swagger`
+
+### 2. Run from sources in IDE
+
+- Check that `JDK 21` for Java has been set up
+- Set `API_EXCHANGE_RATE_ACCESS_KEY` env in predefined `.run` configuration<br/>
+  ![<img width="150" height="150"/>](assets/ide-setup.png)
+- Run application. In `dev` profile database will automatically set up from `compose.yaml` file
 
 ### Swagger
 
 `http://localhost:8094/webjars/swagger-ui/index.html`
+
+### Request examples
+
+***Note:*** Predefined accounts can be used for requests: `resources/db/migration/V003__client_accounts_inserts.sql`
+
+- Find account id by predefined client id<br/>
+   ![<img width="150" height="150"/>](assets/account-request.png)
+- Send money from one account to other<br/>
+   ![<img width="150" height="150"/>](assets/transaction.png)
+- Check `Swagger` for other endpoints
+
+
+

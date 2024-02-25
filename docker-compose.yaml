@@ -1,0 +1,28 @@
+version: '3.8'
+services:
+  mintos-homework-db:
+    restart: always
+    image: 'postgres:15'
+    environment:
+      - 'POSTGRES_DB=mintos_db'
+      - 'POSTGRES_PASSWORD=postgres'
+      - 'POSTGRES_USER=postgres'
+    ports:
+      - '5432:5432'
+    container_name: 'mintos-homework-db'
+  
+  mintos-transaction-service:
+    depends_on:
+      - mintos-homework-db
+    image: 'ximtech/mintos-homework:latest'
+    container_name: 'mintos-homework-transaction-service'
+    expose:
+      - 8094
+    ports:
+    - '8094:8094'
+    environment:
+      - 'PROFILE=prod'
+      - 'API_EXCHANGE_RATE_ACCESS_KEY=<your_api_key_here>'
+      - 'MINTOS_DB_URL=jdbc:postgresql://mintos-homework-db/mintos_db'
+      - 'MINTOS_DB_USERNAME=postgres'
+      - 'MINTOS_DB_PASSWORD=postgres'
