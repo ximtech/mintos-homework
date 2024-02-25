@@ -1,6 +1,7 @@
 # mintos-homework
 
 [![build](https://github.com/ximtech/mintos-homework/actions/workflows/build.yml/badge.svg)](https://github.com/ximtech/mintos-homework/actions/workflows/build.yml)
+[![codecov](https://codecov.io/gh/ximtech/mintos-homework/graph/badge.svg?token=ODTJcTrfNp)](https://codecov.io/gh/ximtech/mintos-homework)
 
 ### Prerequisites
 
