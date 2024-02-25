@@ -34,7 +34,7 @@ bootJar {
 }
 
 bootBuildImage {
-    builder = 'paketobuildpacks/builder:tiny'
+    builder = 'paketobuildpacks/builder-jammy-base'
     imageName = 'mintos-homework'
     publish = false
 }
