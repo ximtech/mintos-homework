@@ -16,7 +16,6 @@ import java.util.UUID;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "client_accounts", schema = BaseEntity.DEFAULT_SCHEMA)
 public class ClientAccount extends BaseEntity {
 

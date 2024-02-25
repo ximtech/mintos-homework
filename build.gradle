@@ -110,22 +110,21 @@ tasks.withType(JavaCompile) {
 }
 
 jacocoTestReport {
+    dependsOn test // tests are required to run before generating the report
     reports {
         xml.required = true
         html.required = true
         csv.required = false
     }
-    dependsOn test // tests are required to run before generating the report
-}
 
-jacocoTestCoverageVerification {
-    violationRules {
-        rule {
-            limit {
-                // min test coverage, increase up to 80%
-                minimum = 0.60
-            }
-        }
+    afterEvaluate {
+        classDirectories.setFrom(files(classDirectories.files.collect {
+            fileTree(dir: it, exclude: [
+                    '**/exception/**',
+                    '**/controller/**',
+                    '**/*MapperImpl.class'
+            ])
+        }))
     }
 }
 

@@ -19,7 +19,6 @@ import java.math.BigDecimal;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor
 @Table(name = "client_transactions", schema = BaseEntity.DEFAULT_SCHEMA)
 public class ClientTransaction extends BaseEntity {
 
