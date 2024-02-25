@@ -40,7 +40,7 @@ jobs:
       run: gradle bootBuildImage --info --stacktrace
 
     - name: Tag docker image
-      run: docker tag altium-migrator ${{ secrets.DOCKERHUB_USERNAME }}/mintos-homework:latest
+      run: docker tag mintos-homework ${{ secrets.DOCKERHUB_USERNAME }}/mintos-homework:latest
 
     - name: Push docker image
       run: docker push ${{ secrets.DOCKERHUB_USERNAME }}/mintos-homework:latest
