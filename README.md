@@ -51,12 +51,12 @@ the items (more is better, however).
 - Wait until containers will up and ready
 - Run requests or check `Swagger`
 
-### 2. Run from sources in IDE
+### 2. Run from an IDE
 
 - Check that `JDK 21` for Java has been set up
 - Set `API_EXCHANGE_RATE_ACCESS_KEY` env in predefined `.run` configuration<br/>
   ![<img width="150" height="150"/>](assets/ide-setup.png)
-- Run application. In `dev` profile database will automatically set up from `compose.yaml` file
+- Run application. Running nn `dev` profile, database will be automatically set up from `compose.yaml` file
 
 ### Swagger
 
