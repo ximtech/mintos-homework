@@ -9,7 +9,9 @@ import mintos.homework.service.ClientTransactionService
 import mintos.homework.service.CurrencyExchangeRateService
 import org.spockframework.spring.SpringBean
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.test.context.jdbc.Sql
 
+@Sql(scripts = '/test-data.sql', executionPhase = Sql.ExecutionPhase.BEFORE_TEST_CLASS)
 class ClientTransactionIntegrationSpec extends DatabaseSpecTemplate {
 
     @Autowired
@@ -22,8 +24,8 @@ class ClientTransactionIntegrationSpec extends DatabaseSpecTemplate {
     
     def 'test executeClientFundTransaction() - happy path'() {
         given:
-        def fromAccount = clientAccountService.listClientAccounts(UUID.fromString('e9e187d7-2ac3-4a71-bb59-5ca84c4a7d66'))[0] // USD account
-        def toAccount = clientAccountService.listClientAccounts(UUID.fromString('b1fd0df8-82f2-48f5-91ea-93b7b1d7dab4'))[1]   // GBP account
+        def fromAccount = clientAccountService.listClientAccounts(UUID.fromString('1e084112-5715-4c43-aeae-ac6aa0518623'))[0] // USD account
+        def toAccount = clientAccountService.listClientAccounts(UUID.fromString('de50ddab-a08a-4dfa-b4bb-01d18f06b26a'))[1]   // GBP account
         def request = new FundTransactionRequestDTO(fromAccount.id(), toAccount.id(), 1.0G, "GBP")
         
         when: 'check before amount and execute transaction'
@@ -57,8 +59,8 @@ class ClientTransactionIntegrationSpec extends DatabaseSpecTemplate {
 
     def 'test executeClientFundTransaction() - invalid target account currency should fail'() {
         given:
-        def fromAccount = clientAccountService.listClientAccounts(UUID.fromString('e9e187d7-2ac3-4a71-bb59-5ca84c4a7d66'))[0] // USD account
-        def toAccount = clientAccountService.listClientAccounts(UUID.fromString('b1fd0df8-82f2-48f5-91ea-93b7b1d7dab4'))[0]   // EUR account
+        def fromAccount = clientAccountService.listClientAccounts(UUID.fromString('1e084112-5715-4c43-aeae-ac6aa0518623'))[0] // USD account
+        def toAccount = clientAccountService.listClientAccounts(UUID.fromString('de50ddab-a08a-4dfa-b4bb-01d18f06b26a'))[0]   // EUR account
         def request = new FundTransactionRequestDTO(fromAccount.id(), toAccount.id(), 1.0G, "GBP")
         
         when:
@@ -74,7 +76,7 @@ class ClientTransactionIntegrationSpec extends DatabaseSpecTemplate {
 
     def 'test executeClientFundTransaction() - no enough funds to transfer should fail'() {
         given:
-        def fromAccount = clientAccountService.listClientAccounts(UUID.fromString('b1fd0df8-82f2-48f5-91ea-93b7b1d7dab4'))[0] // EUR account
+        def fromAccount = clientAccountService.listClientAccounts(UUID.fromString('de50ddab-a08a-4dfa-b4bb-01d18f06b26a'))[0] // EUR account
         def toAccount = clientAccountService.listClientAccounts(UUID.fromString('a7ff2c04-977e-455c-8d11-f6a2e7ca6259'))[0]   // EUR account
         def request = new FundTransactionRequestDTO(fromAccount.id(), toAccount.id(), 555.61G, "EUR")
 
