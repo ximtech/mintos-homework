@@ -1,7 +1,7 @@
 spring:
   docker:
     compose:
-      enabled: true
+      enabled: false
   datasource:
     url: ${MINTOS_DB_URL}
     username: ${MINTOS_DB_USERNAME}

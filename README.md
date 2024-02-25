@@ -39,7 +39,9 @@ the items (more is better, however).
 2. Implemented web service should be resilient to 3rd party service unavailability
 3. DB schema versioning should be implemented
 
-### Run example
+## Run example
+
+
 
 
 ### Swagger
